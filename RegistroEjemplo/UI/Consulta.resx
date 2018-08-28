@@ -117,8 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8-nuevo-25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-nuevo-25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ConsultaButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAQFJREFUSEvtlUtqAkEURXuUiWSUZbgJnRiIC8rABRiyFBHy24orSNSBm9B7oAse
+        j7qmu8VZHzjQvLqviq7qTzPSl6Xcy/NA6X2Rlj9Za+zjr7TUGoZoqYU/5ExOWrn+krVs0ZKDr9Kxkjlf
+        tMTQJwXxIN/lofWtrcG3jD1FSwyxFbCWsY7UYC7zGFpiiP2Go4x15E7gUeYxtMRQlwWeZB5DSwxx+3Bt
+        i55lHkNLDHGAwIEyYTlkrsshb2XsKVpykEfxGlN5krnPkoP4I9kuDpQ9X8iNZHKoLWKJof9k0rIIj3Qc
+        s8RQF1mEyXehhpYYukXL3T/X/CxuWYTJeTdGutI0Fy/IBPZgdf0jAAAAAElFTkSuQmCC
+</value>
   </data>
 </root>
