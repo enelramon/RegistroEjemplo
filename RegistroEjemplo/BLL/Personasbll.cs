@@ -8,11 +8,47 @@ using System.Text;
 
 namespace RegistroEjemplo.Entidades
 {
-    public class Personasbll
+    public class PersonasBll
     {
+        public static bool Guardar(Personas persona)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                if (db.Personas.Add(persona) != null)
+                {
+                    db.SaveChanges();
+                    paso = true;
+                }
 
+                db.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
 
+        //Este es el metodo para modificar en la base de datos
+        public static bool Modificar(Personas persona)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
 
+            try
+            {
+                db.Entry(persona).State = System.Data.Entity.EntityState.Modified;
+                paso = (db.SaveChanges() > 0);
+                db.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
 
         //Este es el metodo para eliminar en la base de datos
         public static bool Eliminar(int id)
@@ -35,32 +71,11 @@ namespace RegistroEjemplo.Entidades
             return paso;
         }
 
-        //Este es el metodo para modificar en la base de datos
-        public static bool Modificar(Persona persona)
-        {
-            bool paso = false;
-            Contexto db = new Contexto();
-
-            try
-            {
-                db.Entry(persona).State = System.Data.Entity.EntityState.Modified;
-                paso = (db.SaveChanges() > 0);
-                db.Dispose();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-        }
-
-
-
-        //Este es el metodo para buscar en la base de datos
-        public static Persona Buscar(int id)
+         //Este es el metodo para buscar en la base de datos
+        public static Personas Buscar(int id)
         {
             Contexto db = new Contexto();
-            Persona persona = new Persona();
+            Personas persona = new Personas();
             try
             {
                 persona = db.Personas.Find(id);
@@ -72,32 +87,11 @@ namespace RegistroEjemplo.Entidades
             }
             return persona;
         }
-
-        internal static bool Guardar(Persona persona)
-        {
-            bool paso = false;
-            Contexto db = new Contexto();
-            try
-            {
-                if (db.Personas.Add(persona) != null)
-                {
-                    db.SaveChanges();
-                    paso = true;
-                }
-
-                db.Dispose();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-        }
-
+        
         //Este es el metodo para listar o consultar lo que tenemos en la base de datos
-        public static List<Persona> GetList(Expression<Func<Persona, bool>> persona)
+        public static List<Personas> GetList(Expression<Func<Personas, bool>> persona)
         {
-            List<Persona> people = new List<Persona>();
+            List<Personas> people = new List<Personas>();
             Contexto db = new Contexto();
             try
             {

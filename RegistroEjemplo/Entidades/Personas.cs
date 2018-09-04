@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RegistroEjemplo.BLL
 {
-    public class Persona
+    public class Personas
     {
         [Key]
         public int PersonaID { get; set; }
@@ -16,7 +16,7 @@ namespace RegistroEjemplo.BLL
         public string Direccion { get; set; }
         public DateTime FechaNacimiento { get; set; }
         
-        public Persona()
+        public Personas()
         {
             PersonaID = 0;
             Nombre = string.Empty;
@@ -26,7 +26,7 @@ namespace RegistroEjemplo.BLL
             FechaNacimiento = DateTime.Now;
         }
 
-        public Persona(int personaid, string nombre, string telefono, string cedula, string direccion, DateTime fechanacimiento)
+        public Personas(int personaid, string nombre, string telefono, string cedula, string direccion, DateTime fechanacimiento)
         {
             PersonaID = personaid;
             Nombre = nombre;

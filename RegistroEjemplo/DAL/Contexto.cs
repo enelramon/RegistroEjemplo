@@ -10,7 +10,7 @@ namespace RegistroEjemplo.DAL
 {
     public class Contexto: DbContext
     {
-        public DbSet<Persona> Personas { get; set; }
+        public DbSet<Personas> Personas { get; set; }
 
         public Contexto(): base("ConStr")
         {

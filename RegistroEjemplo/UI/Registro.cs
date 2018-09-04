@@ -38,9 +38,9 @@ namespace RegistroEjemplo.UI
             Limpiar();
         }
 
-        private Persona LlenaClase()
+        private Personas LlenaClase()
         {
-            Persona persona = new Persona();
+            Personas persona = new Personas();
             persona.PersonaID = Convert.ToInt32(IDNumericUpDown.Value);
             persona.Nombre = NombeTextBox.Text;
             persona.Cedula = CedulaTextBox.Text;
@@ -50,7 +50,7 @@ namespace RegistroEjemplo.UI
             return persona;
         }
 
-        private void LlenaCampo(Persona persona)
+        private void LlenaCampo(Personas persona)
         {
             IDNumericUpDown.Value = persona.PersonaID;
             NombeTextBox.Text = persona.Nombre;
@@ -60,8 +60,16 @@ namespace RegistroEjemplo.UI
             FechaNacimientoDateTimePicker.Value = persona.FechaNacimiento;
         }
         
-        private bool GuardarValidar()
+        private bool Validar()
         {
+            //var controles = this.Controls.OfType<TextBox>();
+
+            //foreach (var item in controles)
+            //{
+            //    if (String.IsNullOrWhiteSpace(item.Text))
+            //        SuperErrorProvider.SetError(item, "campo obligatorio");
+            //}
+
             bool paso = true;
 
             if (NombeTextBox.Text == string.Empty || CedulaTextBox.Text == string.Empty || TelefonoTextBox.Text == string.Empty || DireccionTextBox.Text == string.Empty)
@@ -76,12 +84,12 @@ namespace RegistroEjemplo.UI
                     SuperErrorProvider.SetError(CedulaTextBox, "No puede dejar este campo vacio");
                     CedulaTextBox.Focus();
                 }
-                if(TelefonoTextBox.Text == string.Empty)
+                if (TelefonoTextBox.Text == string.Empty)
                 {
                     SuperErrorProvider.SetError(TelefonoTextBox, "No puede dejar este campo vacio");
                     TelefonoTextBox.Focus();
                 }
-                if(NombeTextBox.Text == string.Empty)
+                if (NombeTextBox.Text == string.Empty)
                 {
                     SuperErrorProvider.SetError(NombeTextBox, "No puede dejar este campo vacio");
                     NombeTextBox.Focus();
@@ -94,42 +102,53 @@ namespace RegistroEjemplo.UI
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            SuperErrorProvider.Clear();
-            int id;
-            int.TryParse(IDNumericUpDown.Text, out id);
-            Persona persona = Personasbll.Buscar(id);
-            Persona persona_guardar = LlenaClase();
+            
+            Personas persona;
+            bool paso = false;
+            
+            if(!Validar())
+                return;
 
-            if (persona == null)
-            {
-                if (GuardarValidar())
-                {
-                    if (Personasbll.Guardar(persona_guardar))
-                        MessageBox.Show("Persona guardada");
-                    else
-                        MessageBox.Show("Persona no guardada");
-                }
-            }
+            persona = LlenaClase();
+            Limpiar();
+
+            //Determinar si es guardar o modificar
+            if (IDNumericUpDown.Value == 0)
+                paso = PersonasBll.Guardar(persona);
             else
             {
-                if (GuardarValidar())
+                if (!ExisteEnLaBaseDeDatos())
                 {
-                    if (Personasbll.Modificar(persona_guardar))
-                        MessageBox.Show("Persona modificada");
-                    else
-                        MessageBox.Show("Persona no modificada");
+                    MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+                paso = PersonasBll.Modificar(persona);
             }
+            
+            //Informar el resultado
+            if (paso)
+                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No se pudo guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            Personas persona = PersonasBll.Buscar((int)IDNumericUpDown.Value);
+
+            return (persona != null);
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            SuperErrorProvider.Clear();
+            
             int id;
-            Persona persona = new Persona();
+            Personas persona = new Personas();
             int.TryParse(IDNumericUpDown.Text, out id);
 
-            persona = Personasbll.Buscar(id);
+            Limpiar();
+
+            persona = PersonasBll.Buscar(id);
 
             if (persona != null)
             {
@@ -147,8 +166,8 @@ namespace RegistroEjemplo.UI
             SuperErrorProvider.Clear();
             int id;
             int.TryParse(IDNumericUpDown.Text, out id);
-
-            if (Personasbll.Eliminar(id))
+            Limpiar();
+            if (PersonasBll.Eliminar(id))
                 MessageBox.Show("Eliminado");
             else
                 SuperErrorProvider.SetError(IDNumericUpDown, "No se puede eliminar una persona que no existe");
