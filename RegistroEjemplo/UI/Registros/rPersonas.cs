@@ -1,17 +1,21 @@
 ﻿using RegistroEF.BLL;
 using RegistroEF.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace RegistroEF.UI
 {
     public partial class Registro : Form
     {
+        public List<TelefonosDetalle> Detalle { get; set; }
+
         //Esta es la clase donde va la programacion del formulario del registro
         //Aqui llamamos la logica creada en la BLL
         public Registro()
         {
             InitializeComponent();
+            this.Detalle = new List<TelefonosDetalle>();
         }
 
         //Metodo para limpiar los componentes del registro
@@ -19,7 +23,7 @@ namespace RegistroEF.UI
         {
             IDNumericUpDown.Value = 0;
             NombreTextBox.Text = string.Empty;
-            CedulamaskedTextBox.Text = string.Empty; 
+            CedulamaskedTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
             FechaNacimientoDateTimePicker.Value = DateTime.Now;
             MyErrorProvider.Clear();
@@ -36,21 +40,27 @@ namespace RegistroEF.UI
             Personas persona = new Personas();
             persona.PersonaId = Convert.ToInt32(IDNumericUpDown.Value);
             persona.Nombre = NombreTextBox.Text;
-            persona.Cedula = CedulamaskedTextBox.Text; 
+            persona.Cedula = CedulamaskedTextBox.Text;
             persona.Direccion = DireccionTextBox.Text;
             persona.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
+
+            persona.Telefonos = this.Detalle;
+
             return persona;
         }
 
         private void LlenaCampo(Personas persona)
         {
             IDNumericUpDown.Value = persona.PersonaId;
-            NombreTextBox.Text = persona.Nombre; 
+            NombreTextBox.Text = persona.Nombre;
             CedulamaskedTextBox.Text = persona.Cedula;
             DireccionTextBox.Text = persona.Direccion;
             FechaNacimientoDateTimePicker.Value = persona.FechaNacimiento;
-        }
 
+            this.Detalle = persona.Telefonos;
+            CargarGrid();
+        }
+        
         private bool Validar()
         {
             bool paso = true;
@@ -77,12 +87,12 @@ namespace RegistroEF.UI
                 paso = false;
             }
 
-            //if (string.IsNullOrWhiteSpace(TelefonomaskedTextBox.Text.Replace("-", "")))
-            //{
-            //    MyErrorProvider.SetError(TelefonomaskedTextBox, "El campo Telefono no puede estar vacio");
-            //    TelefonomaskedTextBox.Focus();
-            //    paso = false;
-            //}
+            if (this.Detalle.Count==0)
+            {
+                MyErrorProvider.SetError(detalleDataGridView, "Debe agregar algun telefono");
+                TelefonomaskedTextBox.Focus();
+                paso = false;
+            }
 
             return paso;
         }
@@ -157,6 +167,42 @@ namespace RegistroEF.UI
                 MessageBox.Show("Eliminado");
             else
                 MyErrorProvider.SetError(IDNumericUpDown, "No se puede eliminar una persona que no existe");
+        }
+
+        private void Agregarbutton_Click(object sender, EventArgs e)
+        {
+            if (detalleDataGridView.DataSource != null)
+                this.Detalle = (List<TelefonosDetalle>)detalleDataGridView.DataSource;
+            //todo: validar campos del detalle
+
+            //Agregar un nuevo detalle con los datos introducidos.
+            this.Detalle.Add(
+                new TelefonosDetalle(
+                    id: 0,
+                    idPersona: (int)IDNumericUpDown.Value,
+                    telefono: TelefonomaskedTextBox.Text,
+                    tipoTelefono: TipotextBox.Text
+                    )
+               );
+
+            CargarGrid();
+        }
+
+        private void Removerbutton_Click(object sender, EventArgs e)
+        {
+            if (detalleDataGridView.Rows.Count > 0 && detalleDataGridView.CurrentRow != null)
+            {                
+                //remover la fila
+                Detalle.RemoveAt(detalleDataGridView.CurrentRow.Index);
+
+                CargarGrid();
+            }
+        }
+
+        private void CargarGrid()
+        {
+            detalleDataGridView.DataSource = null;
+            detalleDataGridView.DataSource = Detalle;
         }
     }
 }
