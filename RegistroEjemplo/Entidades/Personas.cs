@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 
 namespace RegistroEF.Entidades
 {
@@ -21,7 +19,7 @@ namespace RegistroEF.Entidades
          * ... El opuesto de la carga diferida es la carga previa, precarga o eager loading.*/
 
         public virtual List<TelefonosDetalle> Telefonos { get; set; }
-        
+
         public Personas()
         {
             PersonaId = 0;

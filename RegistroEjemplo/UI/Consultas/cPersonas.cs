@@ -2,11 +2,8 @@
 using RegistroEF.Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace RegistroEF.UI
@@ -25,7 +22,7 @@ namespace RegistroEF.UI
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
                 switch (FiltrarComboBox.SelectedIndex)
-                {                    
+                {
                     case 0://Todo
                         listado = PersonasBll.GetList(p => true);
                         break;
@@ -34,7 +31,7 @@ namespace RegistroEF.UI
                         int id = Convert.ToInt32(CriterioTextBox.Text);
                         listado = PersonasBll.GetList(p => p.PersonaId == id);
                         break;
-                        
+
                     case 2://Nombre
                         listado = PersonasBll.GetList(p => p.Nombre.Contains(CriterioTextBox.Text));
                         break;
@@ -43,11 +40,7 @@ namespace RegistroEF.UI
                         listado = PersonasBll.GetList(p => p.Cedula.Contains(CriterioTextBox.Text));
                         break;
 
-                    case 4://Telefono
-                        listado = PersonasBll.GetList(p => p.Telefono.Contains(CriterioTextBox.Text));
-                        break;
-
-                    case 5://Direccion
+                    case 4://Direccion
                         listado = PersonasBll.GetList(p => p.Direccion.Contains(CriterioTextBox.Text));
                         break;
                 }

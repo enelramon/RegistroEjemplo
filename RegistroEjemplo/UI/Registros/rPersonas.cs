@@ -19,8 +19,7 @@ namespace RegistroEF.UI
         {
             IDNumericUpDown.Value = 0;
             NombreTextBox.Text = string.Empty;
-            CedulamaskedTextBox.Text = string.Empty;
-            TelefonomaskedTextBox.Text = string.Empty;
+            CedulamaskedTextBox.Text = string.Empty; 
             DireccionTextBox.Text = string.Empty;
             FechaNacimientoDateTimePicker.Value = DateTime.Now;
             MyErrorProvider.Clear();
@@ -37,8 +36,7 @@ namespace RegistroEF.UI
             Personas persona = new Personas();
             persona.PersonaId = Convert.ToInt32(IDNumericUpDown.Value);
             persona.Nombre = NombreTextBox.Text;
-            persona.Cedula = CedulamaskedTextBox.Text;
-            persona.Telefono = TelefonomaskedTextBox.Text;
+            persona.Cedula = CedulamaskedTextBox.Text; 
             persona.Direccion = DireccionTextBox.Text;
             persona.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
             return persona;
@@ -47,8 +45,7 @@ namespace RegistroEF.UI
         private void LlenaCampo(Personas persona)
         {
             IDNumericUpDown.Value = persona.PersonaId;
-            NombreTextBox.Text = persona.Nombre;
-            TelefonomaskedTextBox.Text = persona.Telefono;
+            NombreTextBox.Text = persona.Nombre; 
             CedulamaskedTextBox.Text = persona.Cedula;
             DireccionTextBox.Text = persona.Direccion;
             FechaNacimientoDateTimePicker.Value = persona.FechaNacimiento;
@@ -66,26 +63,26 @@ namespace RegistroEF.UI
                 paso = false;
             }
 
-            if (string.IsNullOrWhiteSpace(DireccionTextBox.Text ))
+            if (string.IsNullOrWhiteSpace(DireccionTextBox.Text))
             {
                 MyErrorProvider.SetError(DireccionTextBox, "El campo Direccion no puede estar vacio");
                 DireccionTextBox.Focus();
                 paso = false;
             }
 
-            if (string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text.Replace("-","") ))
+            if (string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text.Replace("-", "")))
             {
                 MyErrorProvider.SetError(CedulamaskedTextBox, "El campo Cedula no puede estar vacio");
                 CedulamaskedTextBox.Focus();
                 paso = false;
             }
 
-            if (string.IsNullOrWhiteSpace(TelefonomaskedTextBox.Text.Replace("-", "")))
-            {
-                MyErrorProvider.SetError(TelefonomaskedTextBox, "El campo Telefono no puede estar vacio");
-                TelefonomaskedTextBox.Focus();
-                paso = false;
-            }           
+            //if (string.IsNullOrWhiteSpace(TelefonomaskedTextBox.Text.Replace("-", "")))
+            //{
+            //    MyErrorProvider.SetError(TelefonomaskedTextBox, "El campo Telefono no puede estar vacio");
+            //    TelefonomaskedTextBox.Focus();
+            //    paso = false;
+            //}
 
             return paso;
         }
