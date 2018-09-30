@@ -98,11 +98,11 @@ namespace RegistroEF.Entidades
         //Este es el metodo para listar o consultar lo que tenemos en la base de datos
         public static List<Personas> GetList(Expression<Func<Personas, bool>> persona)
         {
-            List<Personas> people = new List<Personas>();
+            List<Personas> Lista = new List<Personas>();
             Contexto db = new Contexto();
             try
             {
-                people = db.Personas.Where(persona).ToList(); 
+                Lista = db.Personas.Where(persona).ToList(); 
             }
             catch (Exception)
             {
@@ -112,7 +112,7 @@ namespace RegistroEF.Entidades
             {
                 db.Dispose();
             }
-            return people;
+            return Lista;
         }
     }
 }
