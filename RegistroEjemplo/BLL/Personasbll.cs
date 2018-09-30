@@ -95,10 +95,10 @@ namespace RegistroEF.Entidades
                 // El Count() lo que hace es engañar al lazyloading y obligarlo a cargar los detalles 
                 persona.Telefonos.Count();
 
-                persona = db.Personas
-                     .Include(x => x.Telefonos.Select(c => c.PersonaId))
-                             .Where(p => p.PersonaId == id)
-                             .FirstOrDefault();
+                //persona = db.Personas
+                //     .Include(x => x.Telefonos.Select(c => c.PersonaId))
+                //             .Where(p => p.PersonaId == id)
+                //             .FirstOrDefault();
             }
             catch (Exception)
             {
