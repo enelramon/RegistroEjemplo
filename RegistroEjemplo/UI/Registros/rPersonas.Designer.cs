@@ -52,7 +52,7 @@
             // 
             // EliminarButton
             // 
-            this.EliminarButton.Image = global::RegistroEjemplo.Properties.Resources.borrar;
+            this.EliminarButton.Image = global::RegistroEF.Properties.Resources.borrar;
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.EliminarButton.Location = new System.Drawing.Point(212, 167);
             this.EliminarButton.Margin = new System.Windows.Forms.Padding(2);
@@ -66,7 +66,7 @@
             // 
             // GuardarButton
             // 
-            this.GuardarButton.Image = global::RegistroEjemplo.Properties.Resources.guardar;
+            this.GuardarButton.Image = global::RegistroEF.Properties.Resources.guardar;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.GuardarButton.Location = new System.Drawing.Point(145, 167);
             this.GuardarButton.Margin = new System.Windows.Forms.Padding(2);
@@ -80,7 +80,7 @@
             // 
             // NuevoButton
             // 
-            this.NuevoButton.Image = global::RegistroEjemplo.Properties.Resources.nuevo;
+            this.NuevoButton.Image = global::RegistroEF.Properties.Resources.nuevo;
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.NuevoButton.Location = new System.Drawing.Point(78, 167);
             this.NuevoButton.Margin = new System.Windows.Forms.Padding(2);
@@ -94,7 +94,7 @@
             // 
             // BuscarButton
             // 
-            this.BuscarButton.Image = global::RegistroEjemplo.Properties.Resources.buscar;
+            this.BuscarButton.Image = global::RegistroEF.Properties.Resources.buscar;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BuscarButton.Location = new System.Drawing.Point(139, 6);
             this.BuscarButton.Margin = new System.Windows.Forms.Padding(2);
