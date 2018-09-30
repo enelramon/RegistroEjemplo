@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 
 namespace RegistroEF.Entidades
 {
@@ -15,7 +12,7 @@ namespace RegistroEF.Entidades
         public string Cedula { get; set; }
         public string Direccion { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        
+
         public Personas()
         {
             PersonaId = 0;

@@ -1,10 +1,11 @@
 ﻿using RegistroEF.DAL;
+using RegistroEF.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace RegistroEF.Entidades
+namespace RegistroEF.BLL
 {
     public class PersonasBll
     {

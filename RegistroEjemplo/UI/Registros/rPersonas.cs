@@ -66,14 +66,14 @@ namespace RegistroEF.UI
                 paso = false;
             }
 
-            if (string.IsNullOrWhiteSpace(DireccionTextBox.Text ))
+            if (string.IsNullOrWhiteSpace(DireccionTextBox.Text))
             {
                 MyErrorProvider.SetError(DireccionTextBox, "El campo Direccion no puede estar vacio");
                 DireccionTextBox.Focus();
                 paso = false;
             }
 
-            if (string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text.Replace("-","") ))
+            if (string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text.Replace("-", "")))
             {
                 MyErrorProvider.SetError(CedulamaskedTextBox, "El campo Cedula no puede estar vacio");
                 CedulamaskedTextBox.Focus();
@@ -85,7 +85,7 @@ namespace RegistroEF.UI
                 MyErrorProvider.SetError(TelefonomaskedTextBox, "El campo Telefono no puede estar vacio");
                 TelefonomaskedTextBox.Focus();
                 paso = false;
-            }           
+            }
 
             return paso;
         }
