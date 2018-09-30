@@ -38,12 +38,15 @@ namespace RegistroEF.Entidades
             try
             {
                 db.Entry(persona).State = System.Data.Entity.EntityState.Modified;
-                paso = (db.SaveChanges() > 0);
-                db.Dispose();
+                paso = (db.SaveChanges() > 0); 
             }
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                db.Dispose();
             }
             return paso;
         }
@@ -58,14 +61,17 @@ namespace RegistroEF.Entidades
                 var eliminar = db.Personas.Find(id);
                 db.Entry(eliminar).State = System.Data.Entity.EntityState.Deleted;
 
-                paso = (db.SaveChanges() > 0);
-                db.Dispose();
+                paso = (db.SaveChanges() > 0); 
             }
             catch (Exception)
             {
-
                 throw;
             }
+            finally
+            {
+                db.Dispose();
+            }
+
             return paso;
         }
 
@@ -76,12 +82,15 @@ namespace RegistroEF.Entidades
             Personas persona = new Personas();
             try
             {
-                persona = db.Personas.Find(id);
-                db.Dispose();
+                persona = db.Personas.Find(id); 
             }
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                db.Dispose();
             }
             return persona;
         }
@@ -93,18 +102,17 @@ namespace RegistroEF.Entidades
             Contexto db = new Contexto();
             try
             {
-                people = db.Personas.Where(persona).ToList();
-                db.Dispose();
+                people = db.Personas.Where(persona).ToList(); 
             }
             catch (Exception)
             {
                 throw;
             }
+            finally
+            {
+                db.Dispose();
+            }
             return people;
         }
-
-
-
-
     }
 }
