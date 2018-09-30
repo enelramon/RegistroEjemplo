@@ -1,10 +1,8 @@
-﻿using RegistroEF.BLL;
-using RegistroEF.DAL;
+﻿using RegistroEF.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace RegistroEF.Entidades
 {
@@ -17,17 +15,17 @@ namespace RegistroEF.Entidades
             try
             {
                 if (db.Personas.Add(persona) != null)
-                {
-                    db.SaveChanges();
-                    paso = true;
-                }
-
-                db.Dispose();
+                    paso = db.SaveChanges() > 0;
             }
             catch (Exception)
             {
                 throw;
             }
+            finally
+            {
+                db.Dispose();
+            }
+
             return paso;
         }
 
@@ -71,7 +69,7 @@ namespace RegistroEF.Entidades
             return paso;
         }
 
-         //Este es el metodo para buscar en la base de datos
+        //Este es el metodo para buscar en la base de datos
         public static Personas Buscar(int id)
         {
             Contexto db = new Contexto();
@@ -87,7 +85,7 @@ namespace RegistroEF.Entidades
             }
             return persona;
         }
-        
+
         //Este es el metodo para listar o consultar lo que tenemos en la base de datos
         public static List<Personas> GetList(Expression<Func<Personas, bool>> persona)
         {
