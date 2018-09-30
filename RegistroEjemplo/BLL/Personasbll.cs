@@ -1,6 +1,7 @@
 ﻿using RegistroEF.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -37,8 +38,16 @@ namespace RegistroEF.Entidades
 
             try
             {
-                db.Entry(persona).State = System.Data.Entity.EntityState.Modified;
-                paso = (db.SaveChanges() > 0); 
+                //buscar las entidades que no estan para removerlas
+                var Anterior = db.Personas.Find(persona.PersonaId);
+                foreach (var item in Anterior.Telefonos)
+                {
+                    if (!persona.Telefonos.Exists(d => d.Id == item.Id))
+                        db.Entry(item).State = EntityState.Deleted;
+                }
+
+                db.Entry(persona).State = EntityState.Modified;
+                paso = (db.SaveChanges() > 0);
             }
             catch (Exception)
             {
@@ -61,7 +70,7 @@ namespace RegistroEF.Entidades
                 var eliminar = db.Personas.Find(id);
                 db.Entry(eliminar).State = System.Data.Entity.EntityState.Deleted;
 
-                paso = (db.SaveChanges() > 0); 
+                paso = (db.SaveChanges() > 0);
             }
             catch (Exception)
             {
@@ -82,7 +91,14 @@ namespace RegistroEF.Entidades
             Personas persona = new Personas();
             try
             {
-                persona = db.Personas.Find(id); 
+                persona = db.Personas.Find(id);
+                // El Count() lo que hace es engañar al lazyloading y obligarlo a cargar los detalles 
+                persona.Telefonos.Count();
+
+                persona = db.Personas
+                     .Include(x => x.Telefonos.Select(c => c.PersonaId))
+                             .Where(p => p.PersonaId == id)
+                             .FirstOrDefault();
             }
             catch (Exception)
             {
@@ -98,11 +114,11 @@ namespace RegistroEF.Entidades
         //Este es el metodo para listar o consultar lo que tenemos en la base de datos
         public static List<Personas> GetList(Expression<Func<Personas, bool>> persona)
         {
-            List<Personas> people = new List<Personas>();
+            List<Personas> Lista = new List<Personas>();
             Contexto db = new Contexto();
             try
             {
-                people = db.Personas.Where(persona).ToList(); 
+                Lista = db.Personas.Where(persona).ToList();
             }
             catch (Exception)
             {
@@ -112,7 +128,7 @@ namespace RegistroEF.Entidades
             {
                 db.Dispose();
             }
-            return people;
+            return Lista;
         }
     }
 }

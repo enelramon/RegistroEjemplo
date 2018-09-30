@@ -32,7 +32,7 @@ namespace RegistroEF.UI
 
                     case 1://ID
                         int id = Convert.ToInt32(CriterioTextBox.Text);
-                        listado = PersonasBll.GetList(p => p.PersonaID == id);
+                        listado = PersonasBll.GetList(p => p.PersonaId == id);
                         break;
                         
                     case 2://Nombre

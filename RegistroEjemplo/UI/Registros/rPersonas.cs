@@ -35,7 +35,7 @@ namespace RegistroEF.UI
         private Personas LlenaClase()
         {
             Personas persona = new Personas();
-            persona.PersonaID = Convert.ToInt32(IDNumericUpDown.Value);
+            persona.PersonaId = Convert.ToInt32(IDNumericUpDown.Value);
             persona.Nombre = NombreTextBox.Text;
             persona.Cedula = CedulamaskedTextBox.Text;
             persona.Telefono = TelefonomaskedTextBox.Text;
@@ -46,7 +46,7 @@ namespace RegistroEF.UI
 
         private void LlenaCampo(Personas persona)
         {
-            IDNumericUpDown.Value = persona.PersonaID;
+            IDNumericUpDown.Value = persona.PersonaId;
             NombreTextBox.Text = persona.Nombre;
             TelefonomaskedTextBox.Text = persona.Telefono;
             CedulamaskedTextBox.Text = persona.Cedula;

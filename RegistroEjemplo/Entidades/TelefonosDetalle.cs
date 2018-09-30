@@ -10,7 +10,7 @@ namespace RegistroEF.Entidades
         // Atributos de nuestra clase 
         public int Id { get; set; }
         //colocamos una entidad para identificar el Id de la clase dueña del detalle con el mismo nombre del ID de la entidad dueña
-        public int IdPersona { get; set; }
+        public int PersonaId { get; set; }
         public string TipoTelefono { get; set; }
         public string Telefono { get; set; }
 
@@ -19,7 +19,7 @@ namespace RegistroEF.Entidades
         public TelefonosDetalle()
         {
             Id = 0;
-            IdPersona = 0;
+            PersonaId = 0;
             TipoTelefono = string.Empty;
             Telefono = string.Empty;
         }
@@ -27,7 +27,7 @@ namespace RegistroEF.Entidades
         //Constructor Con parametros sin Id
         public TelefonosDetalle(int idPersona, string tipoTelefono, string telefono)
         {
-            IdPersona = idPersona;
+            PersonaId = idPersona;
             TipoTelefono = tipoTelefono;
             Telefono = telefono;
         }
@@ -36,7 +36,7 @@ namespace RegistroEF.Entidades
         public TelefonosDetalle(int id, int idPersona, string tipoTelefono, string telefono)
         {
             Id = id;
-            IdPersona = idPersona;
+            PersonaId = idPersona;
             TipoTelefono = tipoTelefono;
             Telefono = telefono;
         }
