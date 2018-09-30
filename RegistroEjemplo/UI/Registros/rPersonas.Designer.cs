@@ -52,6 +52,7 @@
             // 
             // EliminarButton
             // 
+            this.EliminarButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.EliminarButton.Image = global::RegistroEF.Properties.Resources.borrar;
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.EliminarButton.Location = new System.Drawing.Point(212, 167);
@@ -66,6 +67,7 @@
             // 
             // GuardarButton
             // 
+            this.GuardarButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.GuardarButton.Image = global::RegistroEF.Properties.Resources.guardar;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.GuardarButton.Location = new System.Drawing.Point(145, 167);
@@ -80,6 +82,7 @@
             // 
             // NuevoButton
             // 
+            this.NuevoButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.NuevoButton.Image = global::RegistroEF.Properties.Resources.nuevo;
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.NuevoButton.Location = new System.Drawing.Point(78, 167);
