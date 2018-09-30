@@ -1,4 +1,4 @@
-﻿namespace RegistroEjemplo.UI
+﻿namespace RegistroEF.UI
 {
     partial class Consulta
     {
@@ -48,27 +48,30 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultaDataGridView.Location = new System.Drawing.Point(12, 103);
+            this.ConsultaDataGridView.Location = new System.Drawing.Point(9, 51);
+            this.ConsultaDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConsultaDataGridView.Name = "ConsultaDataGridView";
             this.ConsultaDataGridView.RowTemplate.Height = 24;
-            this.ConsultaDataGridView.Size = new System.Drawing.Size(491, 229);
+            this.ConsultaDataGridView.Size = new System.Drawing.Size(606, 330);
             this.ConsultaDataGridView.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(188, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Filtro";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 16);
+            this.label2.Location = new System.Drawing.Point(283, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Criterio";
             // 
@@ -82,17 +85,20 @@
             "Cedula",
             "Telefono",
             "Direccion"});
-            this.FiltrarComboBox.Location = new System.Drawing.Point(15, 36);
+            this.FiltrarComboBox.Location = new System.Drawing.Point(190, 26);
+            this.FiltrarComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FiltrarComboBox.Name = "FiltrarComboBox";
-            this.FiltrarComboBox.Size = new System.Drawing.Size(121, 24);
+            this.FiltrarComboBox.Size = new System.Drawing.Size(92, 21);
             this.FiltrarComboBox.TabIndex = 3;
             // 
             // CriterioTextBox
             // 
-            this.CriterioTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CriterioTextBox.Location = new System.Drawing.Point(142, 36);
+            this.CriterioTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CriterioTextBox.Location = new System.Drawing.Point(286, 26);
+            this.CriterioTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CriterioTextBox.Name = "CriterioTextBox";
-            this.CriterioTextBox.Size = new System.Drawing.Size(244, 22);
+            this.CriterioTextBox.Size = new System.Drawing.Size(242, 20);
             this.CriterioTextBox.TabIndex = 4;
             // 
             // ConsultaButton
@@ -100,9 +106,10 @@
             this.ConsultaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsultaButton.Image = ((System.Drawing.Image)(resources.GetObject("ConsultaButton.Image")));
             this.ConsultaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ConsultaButton.Location = new System.Drawing.Point(392, 32);
+            this.ConsultaButton.Location = new System.Drawing.Point(532, 23);
+            this.ConsultaButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConsultaButton.Name = "ConsultaButton";
-            this.ConsultaButton.Size = new System.Drawing.Size(111, 30);
+            this.ConsultaButton.Size = new System.Drawing.Size(83, 24);
             this.ConsultaButton.TabIndex = 5;
             this.ConsultaButton.Text = "Consultar";
             this.ConsultaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -112,43 +119,47 @@
             // DesdeDateTimePicker
             // 
             this.DesdeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DesdeDateTimePicker.Location = new System.Drawing.Point(67, 68);
+            this.DesdeDateTimePicker.Location = new System.Drawing.Point(11, 26);
+            this.DesdeDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DesdeDateTimePicker.Name = "DesdeDateTimePicker";
-            this.DesdeDateTimePicker.Size = new System.Drawing.Size(111, 22);
+            this.DesdeDateTimePicker.Size = new System.Drawing.Size(84, 20);
             this.DesdeDateTimePicker.TabIndex = 6;
             // 
             // HastaDateTimePicker
             // 
             this.HastaDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.HastaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.HastaDateTimePicker.Location = new System.Drawing.Point(255, 68);
+            this.HastaDateTimePicker.Location = new System.Drawing.Point(100, 26);
+            this.HastaDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.HastaDateTimePicker.Name = "HastaDateTimePicker";
-            this.HastaDateTimePicker.Size = new System.Drawing.Size(112, 22);
+            this.HastaDateTimePicker.Size = new System.Drawing.Size(85, 20);
             this.HastaDateTimePicker.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(198, 71);
+            this.label3.Location = new System.Drawing.Point(97, 9);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 17);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Hasta";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 71);
+            this.label4.Location = new System.Drawing.Point(8, 9);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Desde";
             // 
             // Consulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 344);
+            this.ClientSize = new System.Drawing.Size(626, 391);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.HastaDateTimePicker);
@@ -159,8 +170,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ConsultaDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Consulta";
-            this.Text = "Consulta";
+            this.Text = "Consulta de Personas";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

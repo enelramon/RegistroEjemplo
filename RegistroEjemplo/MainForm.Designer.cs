@@ -1,4 +1,4 @@
-﻿namespace RegistroEjemplo
+﻿namespace RegistroEF
 {
     partial class MainForm
     {

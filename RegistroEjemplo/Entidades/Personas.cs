@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace RegistroEjemplo.BLL
+namespace RegistroEF.BLL
 {
     public class Personas
     {

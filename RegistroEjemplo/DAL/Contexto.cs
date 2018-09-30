@@ -1,20 +1,18 @@
 ﻿using System;
-using RegistroEjemplo.Entidades;
+using RegistroEF.Entidades;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
-using RegistroEjemplo.BLL;
+using RegistroEF.BLL;
 
-namespace RegistroEjemplo.DAL
+namespace RegistroEF.DAL
 {
     public class Contexto: DbContext
     {
         public DbSet<Personas> Personas { get; set; }
 
         public Contexto(): base("ConStr")
-        {
-
-        }
+        {        }
     }
 }

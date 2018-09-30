@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{611752EC-1C92-4162-B872-8165C2F7FF91}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>RegistroEjemplo</RootNamespace>
-    <AssemblyName>RegistroEjemplo</AssemblyName>
+    <RootNamespace>RegistroEF</RootNamespace>
+    <AssemblyName>RegistroEF</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Entidades\Personas.cs" />
     <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="BLL\PersonasBll.cs" />
+    <Compile Include="BLL\PersonasBLL.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,17 +61,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Consulta.cs">
+    <Compile Include="UI\Consultas\cPersonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Consulta.Designer.cs">
-      <DependentUpon>Consulta.cs</DependentUpon>
+    <Compile Include="UI\Consultas\cPersonas.Designer.cs">
+      <DependentUpon>cPersonas.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Registro.cs">
+    <Compile Include="UI\Registros\rPersonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Registro.Designer.cs">
-      <DependentUpon>Registro.cs</DependentUpon>
+    <Compile Include="UI\Registros\rPersonas.Designer.cs">
+      <DependentUpon>rPersonas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -86,11 +86,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\Consulta.resx">
-      <DependentUpon>Consulta.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Consultas\cPersonas.resx">
+      <DependentUpon>cPersonas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Registro.resx">
-      <DependentUpon>Registro.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Registros\rPersonas.resx">
+      <DependentUpon>rPersonas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -105,7 +105,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-nuevo-25.png" />
+    <None Include="Resources\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
