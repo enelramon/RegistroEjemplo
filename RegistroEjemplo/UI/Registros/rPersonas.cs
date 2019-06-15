@@ -6,13 +6,13 @@ using System.Windows.Forms;
 
 namespace RegistroEF.UI
 {
-    public partial class Registro : Form
+    public partial class rPersonas : Form
     {
         public List<TelefonosDetalle> Detalle { get; set; }
 
         //Esta es la clase donde va la programacion del formulario del registro
         //Aqui llamamos la logica creada en la BLL
-        public Registro()
+        public rPersonas()
         {
             InitializeComponent();
             this.Detalle = new List<TelefonosDetalle>();

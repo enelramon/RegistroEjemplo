@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace RegistroEF.UI
 {
-    public partial class Consulta : Form
+    public partial class cPersonas : Form
     {
-        public Consulta()
+        public cPersonas()
         {
             InitializeComponent();
         }

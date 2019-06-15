@@ -1,6 +1,6 @@
 ﻿namespace RegistroEF.UI
 {
-    partial class Registro
+    partial class rPersonas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rPersonas));
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label3;
             this.EliminarButton = new System.Windows.Forms.Button();

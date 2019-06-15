@@ -15,20 +15,20 @@ namespace RegistroEF
         public MainForm()
         {
             InitializeComponent();
+        }    
+
+        private void PersonasToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            rPersonas rPersonas = new rPersonas();
+            rPersonas.MdiParent = this;
+            rPersonas.Show();
         }
 
-        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PersonasToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            Registro rg = new Registro();
-            rg.MdiParent = this;
-            rg.Show();
-        }
-
-        private void personasToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Consulta cs = new Consulta();
-            cs.MdiParent = this;
-            cs.Show();
+            cPersonas cPersonas = new cPersonas();
+            cPersonas.MdiParent = this;
+            cPersonas.Show();
         }
     }
 }
